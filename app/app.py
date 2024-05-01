@@ -12,8 +12,8 @@ st.set_page_config(layout='wide')
 # Setup the sidebar
 with st.sidebar: 
     st.image('https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png')
-    st.title('LipBuddy')
-    st.info('This application is originally developed from the LipNet deep learning model.')
+    st.title('Lip Reader')
+    st.info('This application has been developed based on the LipNet Research Paper.')
 
 st.title('LipNet Full Stack App') 
 # Generating a list of options or videos 
@@ -34,14 +34,11 @@ if options:
         # Rendering inside of the app
         video = open('/mount/src/lipnet/app/test_video.mp4', 'rb') 
         video_bytes = video.read() 
-        st.video(file_path)
+        st.video(video_bytes)
 
 
-    with col2: 
-        st.info('This is all the machine learning model sees when making a prediction')
+    with col2:
         video, annotations = load_data(tf.convert_to_tensor(file_path))
-        # imageio.mimsave('animation.gif', video, fps=10)
-        # st.image('animation.gif', width=400) 
 
         st.info('This is the output of the machine learning model as tokens')
         model = load_model()
