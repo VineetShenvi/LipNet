@@ -29,10 +29,10 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('/mount/src/lipnet','data','s1', selected_video)
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 /mount/src/lipnet/app/test1_video.mp4 -y')
+        os.system(f'ffmpeg -i {file_path} -vcodec libx264 /mount/src/lipnet/app/test_video.mp4 -y')
 
         # Rendering inside of the app
-        video = open('/mount/src/lipnet/app/test1_video.mp4', 'rb') 
+        video = open('/mount/src/lipnet/app/test_video.mp4', 'rb') 
         video_bytes = video.read() 
         st.video(file_path)
 
